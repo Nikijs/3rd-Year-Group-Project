@@ -1,9 +1,25 @@
-<ion-header>
+<ion-header transparent no-boarder>
   <ion-toolbar>
-    <ion-title>mainpage</ion-title>
+    <ion-title>Main Menu</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content padding color="success" >
+    <ion-list transparent>
+        <ion-item>
+          <ion-button expand="full" large (click)="stepCount()" >Step Counter</ion-button>
+        </ion-item>
+      <ion-item>
+          <ion-button expand="full" large (click)="heartBeat()" >Heart Beat Monitor</ion-button>
+        </ion-item>
+      <ion-item>
+          <ion-button expand="full" large (click)="userDetails()" >User Details</ion-button>
+      </ion-item>
+      <ion-item>
+          <ion-button expand="full" large (click)="bmiCalc()" >BMI calculator</ion-button>
+        </ion-item>
+      <ion-item>
+          <ion-button expand="full" large (click)="exersize()" >Logs</ion-button>
+        </ion-item>
+      </ion-list>
 </ion-content>
