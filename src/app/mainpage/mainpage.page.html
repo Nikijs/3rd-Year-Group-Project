@@ -4,22 +4,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding color="success" >
-    <ion-list transparent>
-        <ion-item>
-          <ion-button expand="full" large (click)="stepCount()" >Step Counter</ion-button>
-        </ion-item>
-      <ion-item>
-          <ion-button expand="full" large (click)="heartBeat()" >Heart Beat Monitor</ion-button>
-        </ion-item>
-      <ion-item>
-          <ion-button expand="full" large (click)="userDetails()" >User Details</ion-button>
-      </ion-item>
-      <ion-item>
-          <ion-button expand="full" large (click)="bmiCalc()" >BMI calculator</ion-button>
-        </ion-item>
-      <ion-item>
-          <ion-button expand="full" large (click)="exersize()" >Logs</ion-button>
-        </ion-item>
+<ion-content padding color="medium" >
+    <ion-list>
+        
+          <ion-button expand="full" large (click)="stepCount()" color="danger" >Step Counter</ion-button>
+        
+          <ion-button expand="full" large (click)="heartBeat()" color="danger">Heart Beat Monitor</ion-button>
+       
+          <ion-button expand="full" large (click)="userDetails()" color="danger">User Details</ion-button>
+      
+          <ion-button expand="full" large (click)="bmiCalc()" color="danger">BMI calculator</ion-button>
+        
+          <ion-button expand="full" large (click)="exersize()" color="danger">Logs</ion-button>
+        
       </ion-list>
 </ion-content>
