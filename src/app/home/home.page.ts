@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicModule, NavController} from '@ionic/angular';
 import {AngularFireAuth} from '@angular/fire/auth';
-import { AlertController } from '@ionic/angular'
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-home',
@@ -15,14 +17,24 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
      public afAuth:AngularFireAuth,
-     public alert: AlertController) { }
+     public alert: AlertController,
+     public router: Router,
+     public user: UserService) { }
 
   async login(){
       const { username, password } = this //just so you dont have to do this.
       try{
           const res = await this.afAuth.auth.signInWithEmailAndPassword(username,password)
+
+          if(res.user){
+            this.user.setUser({
+              username,
+              uid: res.user.uid
+            });
+
+          }
           this.popupMessage("Welcome", "Logged in as "+username) 
-          this.navCtrl.navigateRoot('/mainpage'); //navigated to the main page when logged in
+          this.router.navigateByUrl('/mainpage');  //navigated to the main page when logged in
       } catch(err){
           console.log(err);
           this.popupMessage("Error",err.message); //displays the auth error
@@ -30,7 +42,7 @@ export class HomePage {
   }
 
   register(){
-    this.navCtrl.navigateRoot('/register');
+    this.router.navigateByUrl('/register');
   }
   //popup error message method which takes header and message args
   async popupMessage(header: string, message: string){

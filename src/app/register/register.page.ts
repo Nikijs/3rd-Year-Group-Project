@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { IonicModule, NavController} from '@ionic/angular';
 import {AngularFireAuth} from '@angular/fire/auth';
 import { AlertController } from '@ionic/angular'
+import { Router } from '@angular/router';
+import { UserService } from '../user.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +17,10 @@ export class RegisterPage implements OnInit {
 
   constructor(public navCtrl: NavController,
     public afAuth: AngularFireAuth,
-    public alert: AlertController) { }
+    public alert: AlertController,
+    public router: Router,
+    public user: UserService,
+    public afstore: AngularFirestore) { }
 
   ngOnInit() {
   }
@@ -24,8 +30,18 @@ export class RegisterPage implements OnInit {
     try{
       const res = await this.afAuth.auth.createUserWithEmailAndPassword(username,password)
       console.log(res)
+
+      this.afstore.doc('users/'+res.user.uid).set({
+        username
+      })
+      
+        this.user.setUser({
+          username,
+          uid: res.user.uid
+        });
+
       this.popupMessage("Success", "Signed up as: "+username);
-      this.navCtrl.navigateRoot('/home'); //once signed up will bring back to login page
+      this.router.navigateByUrl('/home'); //once signed up will bring back to login page
     } catch (err){
       console.log(err)
       this.popupMessage("Error", err);
@@ -34,7 +50,7 @@ export class RegisterPage implements OnInit {
     //this.navCtrl.navigateRoot('/home');
   }
   goBack(){
-    this.navCtrl.navigateRoot('/home');
+    this.router.navigateByUrl('/home');
   }
     //popup error message method which takes header and message args
     async popupMessage(header: string, message: string){

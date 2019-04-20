@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
+import { IonicModule, NavController} from '@ionic/angular';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-mainpage',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainpagePage implements OnInit {
 
-  constructor() { }
+  constructor(public navCtrl: NavController,
+    public router: Router) { }
 
   ngOnInit() {
   }
+  
+  stepCount(){
+    this.router.navigateByUrl('/steps');
 
+    console.log("test")
+  }
+  userDetails(){
+    this.router.navigateByUrl('/details');
+  }
 }

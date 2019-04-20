@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Stepcounter } from '@ionic-native/stepcounter/ngx';
+import { IonicModule, NavController} from '@ionic/angular';
+
 
 @Component({
   selector: 'app-steps',
@@ -8,13 +10,13 @@ import { Stepcounter } from '@ionic-native/stepcounter/ngx';
 })
 export class StepsPage implements OnInit {
 
-  constructor(private stepcounter: Stepcounter) { }
+  constructor(public navCtrl: NavController, private stepcounter: Stepcounter) { }
 
   ngOnInit() {
     
     //https://ionicframework.com/docs/native/stepcounter
     let startingOffset = 0;
-this.stepcounter.start(startingOffset).then(onSuccess => console.log('stepcounter-start success', onSuccess), 
+    this.stepcounter.start(startingOffset).then(onSuccess => console.log('stepcounter-start success', onSuccess), 
 onFailure => console.log('stepcounter-start error', onFailure));
 
 this.stepcounter.getHistory().then(historyObj => console.log('stepcounter-history success', historyObj), 

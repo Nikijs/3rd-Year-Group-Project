@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import firebaseConfig from './firebase';
 import {AngularFireModule} from '@angular/fire'
 import {AngularFireAuthModule} from '@angular/fire/auth'
+import { Stepcounter } from '@ionic-native/stepcounter/ngx';
+import { UserService } from './user.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +27,10 @@ import {AngularFireAuthModule} from '@angular/fire/auth'
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    Stepcounter,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    UserService,
+    AngularFirestore
   ],
   bootstrap: [AppComponent]
 })
