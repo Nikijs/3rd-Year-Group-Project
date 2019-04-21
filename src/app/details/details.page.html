@@ -5,5 +5,21 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-label>{{username}}</ion-label>
+  <ion-label>Username: {{username}}</ion-label>
+  <ion-input placeholder="Enter Height" [(ngModel)]="height"></ion-input>
+  <ion-input placeholder="Enter Weight" [(ngModel)]="weight"></ion-input>
+  <ion-input placeholder="Enter Age" [(ngModel)]="age"></ion-input>
+  <ion-input placeholder="Enter Gender" [(ngModel)]="gender"></ion-input>
+
+  <div id = "details" *ngFor="let post of (userDetails | async)?.details">
+    
+      <ion-label>age: {{post.age}} </ion-label>
+      <ion-label>gender: {{post.gender}}</ion-label>
+      <ion-label>height: {{post.height}}</ion-label>
+      <ion-label>weight: {{post.weight}}</ion-label>
+  </div>
+
+  <ion-button full (click)="saveDetails()">Save</ion-button >
+    <ion-button full (click)="getDetails()">get</ion-button >
+    <ion-button full (click)="goBack()">Cancel</ion-button >
 </ion-content>

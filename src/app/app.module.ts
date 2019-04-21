@@ -13,7 +13,7 @@ import {AngularFireModule} from '@angular/fire'
 import {AngularFireAuthModule} from '@angular/fire/auth'
 import { Stepcounter } from '@ionic-native/stepcounter/ngx';
 import { UserService } from './user.service';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +22,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
     IonicModule.forRoot(), 
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [
     StatusBar,
