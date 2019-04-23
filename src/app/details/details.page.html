@@ -1,25 +1,29 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>details</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title color="tertiary">Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-label>Username: {{username}}</ion-label>
-  <ion-input placeholder="Enter Height" [(ngModel)]="height"></ion-input>
-  <ion-input placeholder="Enter Weight" [(ngModel)]="weight"></ion-input>
-  <ion-input placeholder="Enter Age" [(ngModel)]="age"></ion-input>
+  
+  <ion-chip color="dark">
+      <ion-icon name="ios-contact" ></ion-icon>
+      <ion-label color="tertiary">Username: {{username}}</ion-label>
+    </ion-chip>
+  <ion-input type="number" placeholder="Enter Height" [(ngModel)]="height" color="dark"></ion-input>
+  <ion-input type="number" placeholder="Enter Weight" [(ngModel)]="weight"></ion-input>
+  <ion-input type="number" placeholder="Enter Age" [(ngModel)]="age"></ion-input>
   <ion-input placeholder="Enter Gender" [(ngModel)]="gender"></ion-input>
 
-  <div id = "details" *ngFor="let post of (userDetails | async)?.details">
-    
-      <ion-label>age: {{post.age}} </ion-label>
-      <ion-label>gender: {{post.gender}}</ion-label>
-      <ion-label>height: {{post.height}}</ion-label>
-      <ion-label>weight: {{post.weight}}</ion-label>
-  </div>
+    <div>
+        
+        <ion-item lines="full">
+            <ion-icon name="md-cloud-upload" ></ion-icon>
+                <ion-label text-wrap color="tertiary">Saved data: {{userDetails.details | json}} </ion-label>
+          </ion-item>  
+    </div>
 
-  <ion-button full (click)="saveDetails()">Save</ion-button >
-    <ion-button full (click)="getDetails()">get</ion-button >
-    <ion-button full (click)="goBack()">Cancel</ion-button >
+  <ion-button full (click)="saveDetails()" color="success">Save</ion-button >
+    <ion-button full (click)="goBack()" color="danger">Cancel</ion-button >
 </ion-content>
+

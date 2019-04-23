@@ -17,27 +17,34 @@ export class DetailsPage implements OnInit {
   weight:string;
   age:string;
   gender:string;
-  userDetails; //container for users -> userID -> details in firebase
-
+  //userDetails; //container for users -> userID -> details in firebase
+  userDetails;
   
   constructor(public afAuth: AngularFireAuth,
      public router: Router,
      public afstore: AngularFirestore,
      public user: UserService) {
-
-      var cityRef = afstore.collection('users').doc(this.user.getUID());
-      var detail = cityRef.get().subscribe(doc => {
-          console.log('Document data:', doc.data());
-          this.userDetails = doc.data();
+/*
+      const posts = afstore.collection('users').doc(this.user.getUID());
+      posts.get().subscribe((snapshot) => {
+        console.log('Document data:', snapshot.data());
+        this.userDetails = snapshot.data();
         
-      })
+        var result = Object.keys(snapshot.data()).map(function(index){
+          let user = snapshot.data()[index];
+          return user;
+        })
+        console.log(result);
+     }); */
       
+     
      }
     
      
   ngOnInit() {
     var email = this.user.getUsername().split("@");
     this.username = email[0];
+    this.getDetails();
   }
   
   goBack(){
@@ -60,8 +67,13 @@ export class DetailsPage implements OnInit {
 
       }
     })
+    this.getDetails();
   }
   getDetails(){
-      console.log(this.userDetails);
+    const posts = this.afstore.collection('users').doc(this.user.getUID());
+    posts.get().subscribe((snapshot) => {
+     console.log('Document data:', snapshot.data());
+     this.userDetails = snapshot.data();
+     });
   }
 }

@@ -1,21 +1,31 @@
-<ion-header transparent no-boarder>
-  <ion-toolbar>
-    <ion-title>Main Menu</ion-title>
+<ion-header transparent no-boarder >
+  <ion-toolbar color="dark">
+    <ion-title >Main Menu</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding color="medium" >
-    <ion-list>
-        
-          <ion-button expand="full" (click)="stepCount()" color="danger">Step Counter</ion-button>
-        
-          <ion-button expand="full" (click)="heartBeat()" color="danger">Heart Beat Monitor</ion-button>
-       
-          <ion-button expand="full" (click)="userDetails()" color="danger">User Details</ion-button>
+<ion-content padding color="dark" >
+
+          <ion-button shape="round" expand="full" size="large" (click)="stepCount()" color="tertiary">Step Counter
+              <ion-icon slot="start" name="md-walk" ></ion-icon>
+              <ion-icon slot="end" name="md-walk" ></ion-icon>
+          </ion-button>
+
+          <ion-button shape="round" expand="full" size="large" (click)="heartBeat()" color="tertiary">Heart Beat Monitor</ion-button>
+          
+          <ion-button shape="round" expand="full" size="large" (click)="userDetails()" color="tertiary">User Details
+              <ion-icon slot="start" name="ios-contact" ></ion-icon>
+              <ion-icon slot="end" name="ios-contact" ></ion-icon>
+          </ion-button>
+          
+          <ion-button shape="round" expand="full" size="large" (click)="bmiCalc()" color="tertiary">BMI calculator
+              <ion-icon slot="start" name="md-calculator" ></ion-icon>
+              <ion-icon slot="end" name="md-calculator" ></ion-icon>
+          </ion-button>
+          
+          <ion-button shape="round" expand="full" size="large" (click)="exersize()" color="tertiary">Logs
+              <ion-icon slot="start" name="md-clipboard" ></ion-icon>
+              <ion-icon slot="end" name="md-clipboard" ></ion-icon>
+          </ion-button>
       
-          <ion-button expand="full" (click)="bmiCalc()" color="danger">BMI calculator</ion-button>
-        
-          <ion-button expand="full" (click)="exersize()" color="danger">Logs</ion-button>
-        
-      </ion-list>
 </ion-content>
