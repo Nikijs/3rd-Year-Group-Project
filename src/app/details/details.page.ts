@@ -17,26 +17,21 @@ export class DetailsPage implements OnInit {
   weight:string;
   age:string;
   gender:string;
-  //userDetails; //container for users -> userID -> details in firebase
-  userDetails;
+  userDetails; //container for users -> userID -> details in firebase
+
   
   constructor(public afAuth: AngularFireAuth,
      public router: Router,
      public afstore: AngularFirestore,
      public user: UserService) {
-/*
-      const posts = afstore.collection('users').doc(this.user.getUID());
+
+       const posts = afstore.collection('users').doc(this.user.getUID());
       posts.get().subscribe((snapshot) => {
-        console.log('Document data:', snapshot.data());
+        console.debug('Document data:', snapshot.data().details);
         this.userDetails = snapshot.data();
-        
-        var result = Object.keys(snapshot.data()).map(function(index){
-          let user = snapshot.data()[index];
-          return user;
-        })
-        console.log(result);
-     }); */
       
+        
+     });
      
      }
     
@@ -44,7 +39,7 @@ export class DetailsPage implements OnInit {
   ngOnInit() {
     var email = this.user.getUsername().split("@");
     this.username = email[0];
-    this.getDetails();
+    //this.getDetails();
   }
   
   goBack(){
@@ -57,22 +52,22 @@ export class DetailsPage implements OnInit {
     const weight = this.weight;
     const age = this.age;
     const gender = this.gender;
-
+    //updates the details container properties for the user
     this.afstore.doc('users/'+this.user.getUID()).update({
       details: {
           height,
           weight,
           age,
           gender
-
       }
     })
-    this.getDetails();
+    this.getDetails(); //updates on save
   }
+  //gets user posts and subscribes to the 
   getDetails(){
     const posts = this.afstore.collection('users').doc(this.user.getUID());
     posts.get().subscribe((snapshot) => {
-     console.log('Document data:', snapshot.data());
+     console.log('Document data:', snapshot.data().details);
      this.userDetails = snapshot.data();
      });
   }

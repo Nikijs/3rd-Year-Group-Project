@@ -14,13 +14,21 @@
   <ion-input type="number" placeholder="Enter Weight" [(ngModel)]="weight"></ion-input>
   <ion-input type="number" placeholder="Enter Age" [(ngModel)]="age"></ion-input>
   <ion-input placeholder="Enter Gender" [(ngModel)]="gender"></ion-input>
-
+  <ion-icon name="md-cloud-upload" ></ion-icon>
     <div>
-        
-        <ion-item lines="full">
-            <ion-icon name="md-cloud-upload" ></ion-icon>
-                <ion-label text-wrap color="tertiary">Saved data: {{userDetails.details | json}} </ion-label>
-          </ion-item>  
+        <div><ion-label>Saved user details:</ion-label></div>
+            <div>
+                <ion-label>Age: {{userDetails.details.age}}</ion-label>
+            </div>
+            <div>
+                <ion-label>Gender: {{userDetails.details.gender}}</ion-label>
+            </div>
+            <div>
+                <ion-label>Height: {{userDetails.details.height}}</ion-label>
+            </div>
+            <div>
+                <ion-label>Weight: {{userDetails.details.weight}}</ion-label>
+            </div>
     </div>
 
   <ion-button full (click)="saveDetails()" color="success">Save</ion-button >

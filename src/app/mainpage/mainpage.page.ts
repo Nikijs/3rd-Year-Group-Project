@@ -24,4 +24,10 @@ export class MainpagePage implements OnInit {
   userDetails(){
     this.router.navigateByUrl('/details');
   }
+  dailyHealth(){
+    this.router.navigateByUrl('/health');
+  }
+  bmiCalc(){
+    this.router.navigateByUrl('/bmi');
+  }
 }

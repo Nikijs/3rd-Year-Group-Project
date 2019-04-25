@@ -6,11 +6,11 @@ import {firestore } from 'firebase/app'
 import {AngularFireAuth} from '@angular/fire/auth';
 
 @Component({
-  selector: 'app-bmi',
-  templateUrl: './bmi.page.html',
-  styleUrls: ['./bmi.page.scss'],
+  selector: 'app-health',
+  templateUrl: './health.page.html',
+  styleUrls: ['./health.page.scss'],
 })
-export class BMIPage implements OnInit {
+export class HealthPage implements OnInit {
 
   constructor(public afAuth: AngularFireAuth,
     public router: Router,
@@ -19,6 +19,7 @@ export class BMIPage implements OnInit {
 
   ngOnInit() {
   }
+
   goBack(){
     this.router.navigateByUrl('/mainpage');
   }

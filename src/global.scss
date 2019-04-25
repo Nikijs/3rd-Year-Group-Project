@@ -9,3 +9,19 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+.alertCustomCss{
+    
+    button{
+        color: white!important;
+    }
+    .alert-wrapper{
+        background: black;
+    }
+    .alert-message {
+        color: white;
+    }
+    .alert-title{
+        color: red;
+    }
+  }

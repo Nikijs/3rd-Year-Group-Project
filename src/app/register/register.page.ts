@@ -57,7 +57,8 @@ export class RegisterPage implements OnInit {
       const alert = await this.alert.create({
         header,
         message,
-        buttons: ["Close"]
+        buttons: ["Close"],
+        cssClass: 'alertCustomCss'
       })
       await alert.present()
     }
