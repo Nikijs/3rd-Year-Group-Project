@@ -5,5 +5,12 @@
 </ion-header>
 
 <ion-content padding>
+    <ion-input type="number" placeholder="Enter number of hours slept" [(ngModel)]="slept"></ion-input>
+    <ion-input type="number" placeholder="Enter aprox cups of water drank" [(ngModel)]="water"></ion-input>
+    <ion-input type="number" placeholder="Enter aprox cups of coffee drank" [(ngModel)]="coffee"></ion-input>
+    <ion-input type="number" placeholder="Enter hours of exercise done" [(ngModel)]="exercise"></ion-input>
+    
+
+    <ion-button full (click)="accept()" color="danger">Accept</ion-button >
     <ion-button full (click)="goBack()" color="danger">Cancel</ion-button >
 </ion-content>

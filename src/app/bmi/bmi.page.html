@@ -5,5 +5,12 @@
 </ion-header>
 
 <ion-content padding>
+
+    <ion-input type="number" placeholder="Enter Height" [(ngModel)]="height" color="dark"></ion-input>
+    <ion-input type="number" placeholder="Enter Weight" [(ngModel)]="weight"></ion-input>
+    <ion-input type="number" placeholder="Enter Age" [(ngModel)]="age"></ion-input>
+    <ion-label>{{healtStatus}}</ion-label>
+
+    <ion-button full (click)="calculateBmi()" color="danger">Calculate</ion-button >
     <ion-button full (click)="goBack()" color="danger">Cancel</ion-button >
 </ion-content>
