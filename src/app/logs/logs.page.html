@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>logs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div id = "data" *ngFor="let post of (userDetails).posts">
+    <div>
+        <ion-icon name="md-cloud-upload" ></ion-icon>
+        <div>
+            <ion-label>Date: {{post.createdAt.seconds * 1000 | date:'MM-dd-yyyy'}}</ion-label>
+        </div>
+        <div>
+            <ion-label>Coffee: {{post.coffee}}</ion-label>
+        </div>
+        <div>
+            <ion-label>Exercise: {{post.exercise}}</ion-label>
+        </div>
+        <div>
+            <ion-label>Hours slept: {{post.slept}}</ion-label>
+        </div>
+        <div>
+            <ion-label>Cups of water: {{post.water}}</ion-label>  
+        </div>
+    </div>
+    
+  </div>
+
+    <ion-button full (click)="goBack()" color="danger">Cancel</ion-button >
+</ion-content>

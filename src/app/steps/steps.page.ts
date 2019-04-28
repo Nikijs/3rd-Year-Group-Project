@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Stepcounter } from '@ionic-native/stepcounter/ngx';
 import { IonicModule, NavController} from '@ionic/angular';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { IonicModule, NavController} from '@ionic/angular';
 })
 export class StepsPage implements OnInit {
 
-  constructor(public navCtrl: NavController, private stepcounter: Stepcounter) { }
+  constructor(public navCtrl: NavController, private stepcounter: Stepcounter,public router: Router) { }
 
   ngOnInit() {
     
@@ -22,5 +23,7 @@ onFailure => console.log('stepcounter-start error', onFailure));
 this.stepcounter.getHistory().then(historyObj => console.log('stepcounter-history success', historyObj), 
 onFailure => console.log('stepcounter-history error', onFailure));
   }
-
+  goBack(){
+    this.router.navigateByUrl('/mainpage');
+  }
 }

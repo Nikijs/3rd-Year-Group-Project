@@ -18,8 +18,6 @@ export class MainpagePage implements OnInit {
   
   stepCount(){
     this.router.navigateByUrl('/steps');
-
-    console.log("test")
   }
   userDetails(){
     this.router.navigateByUrl('/details');
@@ -29,5 +27,8 @@ export class MainpagePage implements OnInit {
   }
   bmiCalc(){
     this.router.navigateByUrl('/bmi');
+  }
+  logs(){
+    this.router.navigateByUrl('/logs');
   }
 }
