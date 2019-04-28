@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>logs</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title color="tertiary">logs</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,7 +10,10 @@
     <div>
         <ion-icon name="md-cloud-upload" ></ion-icon>
         <div>
-            <ion-label>Date: {{post.createdAt.seconds * 1000 | date:'MM-dd-yyyy'}}</ion-label>
+            <ion-chip color="dark">
+                <ion-icon name="md-calendar" ></ion-icon>
+                <ion-label color="tertiary">Date: {{post.createdAt.seconds * 1000 | date:'MM-dd-yyyy'}}</ion-label>
+              </ion-chip>
         </div>
         <div>
             <ion-label>Coffee: {{post.coffee}}</ion-label>
@@ -28,5 +31,5 @@
     
   </div>
 
-    <ion-button full (click)="goBack()" color="danger">Cancel</ion-button >
+    <ion-button full (click)="goBack()" color="tertiary">Back</ion-button >
 </ion-content>

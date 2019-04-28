@@ -44,7 +44,7 @@ export class HealthPage implements OnInit {
       createdAt
     })
   })
-  this.popupMessage("Success", "Upades pushed to logs page.");
+  this.popupMessage("Success", "Updates pushed to logs page.");
   }
   goBack(){
     this.router.navigateByUrl('/mainpage');

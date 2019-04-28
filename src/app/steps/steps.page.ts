@@ -10,14 +10,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./steps.page.scss'],
 })
 export class StepsPage implements OnInit {
-
+startingOffset
   constructor(public navCtrl: NavController, private stepcounter: Stepcounter,public router: Router) { }
 
   ngOnInit() {
     
     //https://ionicframework.com/docs/native/stepcounter
-    let startingOffset = 0;
-    this.stepcounter.start(startingOffset).then(onSuccess => console.log('stepcounter-start success', onSuccess), 
+    this.startingOffset = 0;
+    this.stepcounter.start(this.startingOffset).then(onSuccess => console.log('stepcounter-start success', onSuccess), 
 onFailure => console.log('stepcounter-start error', onFailure));
 
 this.stepcounter.getHistory().then(historyObj => console.log('stepcounter-history success', historyObj), 
